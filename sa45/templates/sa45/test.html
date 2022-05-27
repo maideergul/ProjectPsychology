@@ -1,0 +1,44 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+    <h3>SA-45</h3>
+
+    <span class="text-nowrap">Below is a list of problems and complaints that people sometimes have. Please read each one carefully. After you have done so, circle the number on the right that<br> best describes <i>how much that problem has bothered or distressed you during the past 7 days, including today</i>: Circle only one number for each problem, and do not skip any items.</span>
+
+    <form method="POST" id="bai_test">
+        {% csrf_token %}
+        {% for question in questions %}
+
+            <article class="media content-section">
+                <div class="form-group" style="padding-bottom: 9px; padding-top: 9px; font-size: 18px">
+                    <small>{{ question.category }}</small>
+                    <div class="form-group  text-nowrap">
+                        {{ question.question_text }}
+                    </div>
+
+                    <div class="form-check" style="padding-left: 40px">
+                        {% for answer in answers %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="{{ question.category }} : {{ question.id }}"
+                                       id="{{ question.category }}"
+                                       value="{{ answer.answer_point }}" required>
+                                <label class="form-check-label" for="inlineRadio1">{{ answer.answer_text }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
+
+
+{% endblock content %}
+
+
+

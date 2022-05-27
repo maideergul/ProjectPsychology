@@ -1,0 +1,39 @@
+{% extends 'users/base.html' %}
+{% block content %}
+    <script>
+        // jquery function
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+
+                    type: 'bar',
+                    data: {
+                        labels: [{%for g in gsi%}'{{g.user}}',{%endfor%}],
+                        datasets: [
+                            {
+                                label: "My First dataset",
+                                data: [{%for g in gsi%}{{g.global_severity_index}},{%endfor%}],
+                                backgroundColor: '#AD35BA',
+                                borderColor: [
+                                    '#AD35BA',
+                                ],
+                                borderWidth: 2,
+                                pointBorderColor: "#fff",
+                                pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
+                            }
+                        ]
+                    },
+
+
+                options: {
+                    responsive: true
+
+                }
+            });
+        });
+    </script>
+
+    <canvas id="myChart" width="400" height="100"></canvas>
+
+{% endblock content %}
+

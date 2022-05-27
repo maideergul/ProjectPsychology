@@ -1,0 +1,45 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+    <form action="{% url 'bai-result' %}" method="post">
+        {% csrf_token %}
+        <button class="btn btn-outline-primary" style="margin-left: -18em">Go Back</button>
+
+    </form>
+
+    <h1>Search Results For ' {{ search_data }} ' </h1>
+
+    {% if search_data %}
+        <br>
+        <div class="container">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Score</th>
+                    <th scope="col">Result</th>
+                    <th scope="col">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for res in search_result %}
+                    <tr>
+                        <th scope="row">{{ res.id }} </th>
+                        <td>{{ res.user }}</td>
+                        <td>{{ res.score }}</td>
+                        <td class="text-nowrap">{{ res.result_label }}</td>
+                        <td class="text-nowrap">{{ res.date|date:"d F, Y - H:i" }}</td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </div>
+
+    {% else %}
+        <h1>You forgot to search a user</h1>
+    {% endif %}
+
+{% endblock content %}

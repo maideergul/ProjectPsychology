@@ -1,0 +1,112 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+<h2>BDI Results</h2>
+    <br>
+
+    <script>
+        // jquery function
+        $(document).ready(function () {
+            var ctx = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(ctx, {
+
+                type: 'pie',
+                data: {
+                    labels: [{%for label in chart_data.keys%}'{{label}}',{%endfor%}],
+                    datasets: [
+                        {
+                            label: "My First dataset",
+                            data: [{%for count in chart_data.values%}'{{count}}',{%endfor%}],
+                            backgroundColor: [
+                                'rgba(174, 214, 241, 1)',
+                                'rgba(137, 196, 104, 1)',
+                                'rgba(217, 58, 159, 1)',
+                                'rgba(153, 102, 255, 1)',
+                                'rgba(220, 118, 51, 1)',
+                                'rgba(192, 57, 43, 1)',
+
+                            ],
+                            borderWidth: 5,
+                            pointBorderColor: "#fff",
+                            pointBackgroundColor: "rgba(173, 53, 186, 0.1)",
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true
+
+                }
+            });
+        });
+    </script>
+
+    <canvas id="myChart" width="600" height="300"></canvas>
+    <br><br>
+
+    <form action="{% url 'bdi-search' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group" style="margin-left: 3em">
+            <input type="search" name="search" placeholder="Search User..." class="form-control"/>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+    <br>
+
+    <div class="container">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User</th>
+                <th scope="col">Score</th>
+                <th scope="col">Result</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for res in page_obj %}
+                <tr>
+                    <th scope="row">{{ res.id }} </th>
+                    <td>{{ res.user }}</td>
+                    <td>{{ res.score }}</td>
+                    <td class="text-nowrap">{{ res.result_label }}</td>
+                    <td class="text-nowrap">{{ res.date|date:"d F, Y - H:i" }}</td>
+
+                </tr>
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+    <div class="pagination paginator center-block">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href=?page=1">First</a></li>
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <a class="page-link" href="#">{{ num }} <span class="sr-only"></span></a>
+                        </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+{% endblock content %}

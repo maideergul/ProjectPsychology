@@ -1,0 +1,44 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+    <h3>Beck's Anxiety Inventory</h3>
+
+    <span class="text-nowrap">Below is a list of common symptoms of anxiety. Please carefully read each item in the list.<br> Indicate how much you have been bothered by that symptom during the past month, including today, by circling the number in the corresponding space in the column next to each symptom.</span>
+
+    <form method="POST" id="bai_test">
+        {% csrf_token %}
+        {% for question in questions %}
+
+            <article class="media content-section">
+                <div class="form-group" style="padding-bottom: 9px; padding-top: 9px; font-size: 18px">
+
+                    <div class="form-group">
+                        {{ question.question_text }}
+                    </div>
+
+                    <div class="form-check" style="padding-left: 40px">
+                        {% for answer in answers %}
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="Question : {{ question.id }}"
+                                       id="{{ answer.id }}"
+                                       value="{{ answer.answer_point }}" required>
+                                <label class="form-check-label" for="inlineRadio1">{{ answer.answer_title }}</label>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </article>
+        {% endfor %}
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+
+    </form>
+
+
+
+{% endblock content %}
+
+
+

@@ -1,0 +1,82 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+    <form action="{% url 'sa45-result' %}" method="post">
+    {% csrf_token %}
+        <button class="btn btn-outline-primary" style="margin-left: -18em">Go Back</button>
+
+    </form>
+
+    <h1>Search Results For ' {{ search_data }} ' </h1>
+
+    {% if search_data %}
+        <br>
+        <div class="" style="margin-left: -15em">
+            <table class="table table-fit">
+                <thead>
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">User</th>
+                    <th scope="col">Global Severity Index (GSI)</th>
+                    <th scope="col">Positive Symptom Total (PST)</th>
+                    <th scope="col">Anxiety (ANX)</th>
+                    <th scope="col">Depression (DEP)</th>
+                    <th scope="col">Hostility (HOS)</th>
+                    <th scope="col">Interpersonal Sensitivity (INT)</th>
+                    <th scope="col">Obsessive-Compulsive (OC)</th>
+                    <th scope="col">Paranoid Ideation (PAR)</th>
+                    <th scope="col">Phobic Anxiety (PHO)</th>
+                    <th scope="col">Psychoticism (PSY)</th>
+                    <th scope="col">Somatization (SOM)</th>
+                    {#                <th scope="col">Average GSI</th>#}
+                    <th scope="col">Raw Anx</th>
+                    <th scope="col">Raw Dep</th>
+                    <th scope="col">Raw Hos</th>
+                    <th scope="col">Raw Int</th>
+                    <th scope="col">Raw Oc</th>
+                    <th scope="col">Raw Par</th>
+                    <th scope="col">Raw Pho</th>
+                    <th scope="col">Raw Psy</th>
+                    <th scope="col">Raw Som</th>
+                    <th scope="col">Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for res in search_result %}
+                    <tr>
+                        <th scope="row">{{ res.id }} </th>
+                        <td>{{ res.user }}</td>
+                        <td>{{ res.global_severity_index }}</td>
+                        <td>{{ res.positive_symptom_total }}</td>
+                        <td>{{ res.anxiety_p }}</td>
+                        <td>{{ res.depression_p }}</td>
+                        <td>{{ res.hostility_p }}</td>
+                        <td>{{ res.interpersonal_sensitivity_p }}</td>
+                        <td>{{ res.obsessive_compulsion_p }}</td>
+                        <td>{{ res.paranoid_ideation_p }}</td>
+                        <td>{{ res.phobic_anxiety_p }}</td>
+                        <td>{{ res.psychoticism_p }}</td>
+                        <td>{{ res.somatization_p }}</td>
+                        <td>{{ res.raw_anx }}</td>
+                        <td>{{ res.raw_dep }}</td>
+                        <td>{{ res.raw_hos }}</td>
+                        <td>{{ res.raw_int }}</td>
+                        <td>{{ res.raw_oc }}</td>
+                        <td>{{ res.raw_par }}</td>
+                        <td>{{ res.raw_pho }}</td>
+                        <td>{{ res.raw_psy }}</td>
+                        <td>{{ res.raw_som }}</td>
+                        {#                    <td>{{ res.avg_gsi }}</td>#}
+                        <td class="text-nowrap">{{ res.date|date:"d F, Y - H:i" }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+
+    {% else %}
+        <h1>You forgot to search a user</h1>
+    {% endif %}
+
+{% endblock content %}

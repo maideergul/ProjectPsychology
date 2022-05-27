@@ -1,0 +1,109 @@
+{% extends 'users/base.html' %}
+{% block content %}
+
+    <form action="{% url 'sa45-search' %}" method="POST">
+        {% csrf_token %}
+        <div class="input-group" style="margin-left: -15em">
+            <input type="search" name="search" placeholder="Search User..." class="form-control"/>
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </form>
+
+    <br>
+    <br>
+
+    <div class="" style="margin-left: -15em">
+        <table class="table table-fit">
+            <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">User</th>
+                <th scope="col">Global Severity Index (GSI)</th>
+                <th scope="col">Positive Symptom Total (PST)</th>
+                <th scope="col">Anxiety (ANX)</th>
+                <th scope="col">Depression (DEP)</th>
+                <th scope="col">Hostility (HOS)</th>
+                <th scope="col">Interpersonal Sensitivity (INT)</th>
+                <th scope="col">Obsessive-Compulsive (OC)</th>
+                <th scope="col">Paranoid Ideation (PAR)</th>
+                <th scope="col">Phobic Anxiety (PHO)</th>
+                <th scope="col">Psychoticism (PSY)</th>
+                <th scope="col">Somatization (SOM)</th>
+                {#                <th scope="col">Average GSI</th>#}
+                <th scope="col">Raw Anx</th>
+                <th scope="col">Raw Dep</th>
+                <th scope="col">Raw Hos</th>
+                <th scope="col">Raw Int</th>
+                <th scope="col">Raw Oc</th>
+                <th scope="col">Raw Par</th>
+                <th scope="col">Raw Pho</th>
+                <th scope="col">Raw Psy</th>
+                <th scope="col">Raw Som</th>
+                <th scope="col">Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for res in page_obj %}
+                <tr>
+                <th scope="row">{{ res.id }} </th>
+                <td>{{ res.user }}</td>
+                <td>{{ res.global_severity_index }}</td>
+                <td>{{ res.positive_symptom_total }}</td>
+                <td>{{ res.anxiety_p }}</td>
+                <td>{{ res.depression_p }}</td>
+                <td>{{ res.hostility_p }}</td>
+                <td>{{ res.interpersonal_sensitivity_p }}</td>
+                <td>{{ res.obsessive_compulsion_p }}</td>
+                <td>{{ res.paranoid_ideation_p }}</td>
+                <td>{{ res.phobic_anxiety_p }}</td>
+                <td>{{ res.psychoticism_p }}</td>
+                <td>{{ res.somatization_p }}</td>
+                <td>{{ res.raw_anx }}</td>
+                <td>{{ res.raw_dep }}</td>
+                <td>{{ res.raw_hos }}</td>
+                <td>{{ res.raw_int }}</td>
+                <td>{{ res.raw_oc }}</td>
+                <td>{{ res.raw_par }}</td>
+                <td>{{ res.raw_pho }}</td>
+                <td>{{ res.raw_psy }}</td>
+                <td>{{ res.raw_som }}</td>
+                {#                    <td>{{ res.avg_gsi }}</td>#}
+                <td class="text-nowrap">{{ res.date|date:"d F, Y - H:i" }}</td>
+            {% endfor %}
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="pagination paginator center-block">
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                    <li class="page-item"><a class="page-link" href=?page=1">First</a></li>
+                    <li class="page-item"><a class="page-link"
+                                             href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                {% endif %}
+
+
+                {% for num in page_obj.paginator.page_range %}
+                    {% if page_obj.number == num %}
+                        <li class="page-item active">
+                            <a class="page-link" href="#">{{ num }} <span class="sr-only"></span></a>
+                        </li>
+                    {% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+                        <li class="page-item"><a class="page-link" href="?page={{ num }}">{{ num }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                {% if page_obj.has_next %}
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    </li>
+                    <li class="page-item"><a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+                    </li>
+                {% endif %}
+
+            </ul>
+        </nav>
+    </div>
+{% endblock content %}
