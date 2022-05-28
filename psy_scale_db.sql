@@ -11,7 +11,7 @@
  Target Server Version : 100414
  File Encoding         : 65001
 
- Date: 27/05/2022 22:49:23
+ Date: 28/05/2022 21:40:07
 */
 
 SET NAMES utf8mb4;
@@ -148,13 +148,13 @@ CREATE TABLE `auth_user`  (
 -- ----------------------------
 -- Records of auth_user
 -- ----------------------------
-INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$320000$Oko38uiYSXqVdrsFTx0X3E$1Wx4eJtN+U5KxU6p+VLPvQr/vdt7jJOwuJCkKa/K67k=', '2022-05-27 19:30:46.869615', 1, 'mai', '', '', 'maideergul@yahoo.com', 1, 1, '2022-05-11 21:57:47.789838');
+INSERT INTO `auth_user` VALUES (1, 'pbkdf2_sha256$320000$Oko38uiYSXqVdrsFTx0X3E$1Wx4eJtN+U5KxU6p+VLPvQr/vdt7jJOwuJCkKa/K67k=', '2022-05-27 23:30:58.773706', 1, 'mai', '', '', 'maideergul@yahoo.com', 1, 1, '2022-05-11 21:57:47.789838');
 INSERT INTO `auth_user` VALUES (2, 'pbkdf2_sha256$320000$LmZqHng2xMZZKHhKMFZFYA$YE6TmrlqCmA/LWWRqoGXcUxxS8se06eMjvt3Gc351WY=', '2022-05-25 15:33:20.415129', 0, 'TestUser', 'deneme123', '', '', 1, 1, '2022-05-11 22:02:27.000000');
-INSERT INTO `auth_user` VALUES (3, 'pbkdf2_sha256$320000$4WaSa8AQtDsFfVuotNt49r$slkhtw59fYyspFS3rDEFCwXZG+Hjgs9fmGi+9dCdv9E=', '2022-05-27 19:31:15.307885', 0, 'NewUser', '', '', '', 0, 1, '2022-05-13 20:58:03.663968');
+INSERT INTO `auth_user` VALUES (3, 'pbkdf2_sha256$320000$4WaSa8AQtDsFfVuotNt49r$slkhtw59fYyspFS3rDEFCwXZG+Hjgs9fmGi+9dCdv9E=', '2022-05-27 20:43:06.856680', 0, 'NewUser', '', '', '', 0, 1, '2022-05-13 20:58:03.663968');
 INSERT INTO `auth_user` VALUES (4, 'pbkdf2_sha256$320000$3hggqyWuiz7gZvxyDt5Qxk$6UCkt4aoeQmoiYFFc6RteLy5xsPkNnXRYTUtoQqNA/w=', '2022-05-25 16:22:00.707544', 0, 'NewUser2', '', '', 'newuser2@mail.com', 0, 1, '2022-05-13 21:27:39.965922');
 INSERT INTO `auth_user` VALUES (5, 'pbkdf2_sha256$320000$mJUQarK8tfXfNKE6ZKrYf2$xc2Lg+rs0seKEmJas6uNre9lKzDF+gVWX2dH52uGPZ4=', '2022-05-25 20:06:38.372156', 0, 'TestUser2', '', '', 'testuser2@mail.com', 0, 1, '2022-05-25 13:52:37.026146');
 INSERT INTO `auth_user` VALUES (6, 'pbkdf2_sha256$320000$arWxhQKqsP6vNFs5HyV5xQ$NlqKou3l/0OSTeBOaEKeSd0zc2bpeSYOYJ2qKbU1vZQ=', '2022-05-25 20:49:32.297154', 0, 'TestUser3', '', '', 'testuser3@mail.com', 0, 1, '2022-05-25 13:56:39.077258');
-INSERT INTO `auth_user` VALUES (7, 'pbkdf2_sha256$320000$u7Gnq7O3Cn0rBbtMXpAj2x$Q9hAjE2fFODP2KiZToZ8Ed7kaGC4yt3hwBAslddcrpY=', '2022-05-25 16:52:17.919478', 0, 'TestUser4', '', '', 'testuser4@mail.com', 0, 1, '2022-05-25 13:57:39.327739');
+INSERT INTO `auth_user` VALUES (7, 'pbkdf2_sha256$320000$u7Gnq7O3Cn0rBbtMXpAj2x$Q9hAjE2fFODP2KiZToZ8Ed7kaGC4yt3hwBAslddcrpY=', '2022-05-27 21:10:33.107672', 0, 'TestUser4', '', '', 'testuser4@mail.com', 0, 1, '2022-05-25 13:57:39.327739');
 INSERT INTO `auth_user` VALUES (8, 'pbkdf2_sha256$320000$p7AAaBAy5HooOYT1BLtEus$i949JJOFYh4GUD1HmtctsZxTxXyH7CuXA7OXR5YyUBg=', NULL, 0, 'deneme1', '', '', 'deneme1@mail.com', 0, 1, '2022-05-25 13:59:01.925293');
 INSERT INTO `auth_user` VALUES (9, 'pbkdf2_sha256$320000$aLBnsDpAmpmRqHsfykOHD4$3V7faG2JeHKm27WXDC0ph3g2C8FRVIrosbB0jyYwEJM=', '2022-05-25 16:58:13.561788', 0, 'NewUser4', '', '', 'newuser4@mail.com', 0, 1, '2022-05-25 14:08:58.984900');
 
@@ -605,7 +605,8 @@ CREATE TABLE `django_session`  (
 -- Records of django_session
 -- ----------------------------
 INSERT INTO `django_session` VALUES ('dc577k2do69is6zz7ipwnk2g6cx1l5db', '.eJxVjDsOwjAQBe_iGlnxP6ak5wzWeneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibNQ4vS7ZcAHtx3QHdptlji3dZmy3BV50C6vM_Hzcrh_BxV6_dZ5yN4oVULIDG4E9spFz7Y41HYwZBU6x441ZI2FOAbDSKMvHBkNefH-APAkOMo:1nouLj:zUmzrOgI72T4VwFenmGDEuUZnkvb3cK2SL3AbibBUk8', '2022-05-25 21:58:27.160380');
-INSERT INTO `django_session` VALUES ('ekqy57dmh4tbjtl6ddraoa4y453e9rj0', '.eJxVjEEOwiAUBe_C2pAABcSle89AHvyPVA1NSrtqvLs26UK3b2beJiLWpca18xxHEhdhxOl3S8hPbjugB9p9knlqyzwmuSvyoF3eJuLX9XD_Dip6_dZQmWwyRaMkZ1MwJhutUIIF_ABdnIFPIRR_hh40sbKEwozswMRWvD8Myzl4:1nufg3:CG2ieilh3Ms1L-uR15qAP6ZMiOYpsagDKt_fxsal4UE', '2022-06-10 19:31:15.309866');
+INSERT INTO `django_session` VALUES ('jhtdh7822h4fid7kt0y28reytdqnbx7l', '.eJxVjDsOwjAQBe_iGlnxP6ak5wzWeneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibNQ4vS7ZcAHtx3QHdptlji3dZmy3BV50C6vM_Hzcrh_BxV6_dZ5yN4oVULIDG4E9spFz7Y41HYwZBU6x441ZI2FOAbDSKMvHBkNefH-APAkOMo:1nugfQ:VleTryWp86jBMZX8MFlBu4rRqmzYevbygDUk0FE4uf8', '2022-06-10 20:34:40.998281');
+INSERT INTO `django_session` VALUES ('rpp7pgnuqxom92s1wy0ss7u8dr7u8u9f', '.eJxVjDsOwjAQBe_iGlnxP6ak5wzWeneNA8iR4qRC3B0ipYD2zcx7iQTbWtPWeUkTibNQ4vS7ZcAHtx3QHdptlji3dZmy3BV50C6vM_Hzcrh_BxV6_dZ5yN4oVULIDG4E9spFz7Y41HYwZBU6x441ZI2FOAbDSKMvHBkNefH-APAkOMo:1nugvp:OqQf_uE6UralutNDaTew1sbwMe1Df-EDyX_z0yQlaM0', '2022-06-10 20:51:37.217822');
 
 -- ----------------------------
 -- Table structure for sa45_answers
@@ -719,7 +720,7 @@ CREATE TABLE `sa45_results_of_users`  (
   PRIMARY KEY (`id`) USING BTREE,
   INDEX `sa45_results_of_users_user_id_f5a5f595_fk_auth_user_id`(`user_id`) USING BTREE,
   CONSTRAINT `sa45_results_of_users_user_id_f5a5f595_fk_auth_user_id` FOREIGN KEY (`user_id`) REFERENCES `auth_user` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB AUTO_INCREMENT = 45 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB AUTO_INCREMENT = 51 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
 
 -- ----------------------------
 -- Records of sa45_results_of_users
@@ -742,5 +743,11 @@ INSERT INTO `sa45_results_of_users` VALUES (41, 100, 31, 2.2, 2.75, 2.5, 2.17, 2
 INSERT INTO `sa45_results_of_users` VALUES (42, 66, 19, 1.8, 1.25, 1.75, 1.17, 1.2, 1.6, 1.83, 1.4, 1.2, '2022-05-25 23:57:45.357587', 6, 0.29, 6, 7, 8, 7, 5, 7, 11, 6, 9);
 INSERT INTO `sa45_results_of_users` VALUES (43, 122, 38, 1.4, 3.75, 4, 2.5, 3.8, 2.8, 2.17, 2.4, 2.2, '2022-05-26 00:20:24.095658', 6, 0.56, 19, 15, 14, 16, 15, 12, 13, 11, 7);
 INSERT INTO `sa45_results_of_users` VALUES (44, 84, 30, 2.2, 2.5, 1.5, 1.67, 2, 2, 1.67, 1.8, 1.6, '2022-05-26 00:35:50.060641', 6, 0.38, 10, 10, 10, 6, 10, 9, 10, 8, 11);
+INSERT INTO `sa45_results_of_users` VALUES (45, 83, 24, 3.2, 1.75, 1.75, 1.33, 2.6, 1.6, 1.67, 1.4, 1.4, '2022-05-27 23:34:34.773246', 3, 0.37, 13, 8, 8, 7, 7, 7, 10, 7, 16);
+INSERT INTO `sa45_results_of_users` VALUES (46, 108, 31, 4.4, 2.5, 1.75, 3.5, 1.8, 1.8, 2.17, 1.8, 1.6, '2022-05-27 23:51:27.985048', 3, 0.47, 9, 21, 9, 7, 10, 9, 13, 8, 22);
+INSERT INTO `sa45_results_of_users` VALUES (47, 101, 27, 3.6, 2.75, 1.75, 1.67, 2.8, 2.4, 1.67, 1.6, 2.2, '2022-05-28 00:05:20.195964', 3, 0.45, 14, 10, 12, 7, 11, 8, 10, 11, 18);
+INSERT INTO `sa45_results_of_users` VALUES (48, 122, 36, 4.2, 3, 2.25, 1.5, 2.6, 3, 2.17, 2.8, 3.2, '2022-05-28 00:18:45.034540', 7, 0.55, 13, 9, 15, 9, 12, 14, 13, 16, 21);
+INSERT INTO `sa45_results_of_users` VALUES (49, 127, 38, 4.2, 3.5, 2.5, 2.33, 2.6, 2.8, 2.17, 3.2, 2.4, '2022-05-28 00:33:22.245726', 7, 0.57, 13, 14, 14, 10, 14, 16, 13, 12, 21);
+INSERT INTO `sa45_results_of_users` VALUES (50, 133, 35, 1.4, 4.75, 4, 4.33, 3.8, 1.2, 2.83, 1.8, 2.8, '2022-05-28 00:58:56.928877', 7, 0.6, 19, 26, 6, 16, 19, 9, 17, 14, 7);
 
 SET FOREIGN_KEY_CHECKS = 1;
